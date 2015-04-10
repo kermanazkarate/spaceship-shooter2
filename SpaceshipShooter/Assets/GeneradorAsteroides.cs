@@ -33,6 +33,7 @@ public class GeneradorAsteroides : MonoBehaviour
 			break;
 		case 3:
 			asteroide = (Rigidbody2D)Instantiate (asteroideM, posicionInicial, transform.rotation);
+			asteroide.GetComponent<ControlAsteroide>().puntos = 500;
 			break;
 		}
 
