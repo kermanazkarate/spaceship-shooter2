@@ -18,6 +18,13 @@ public class ControlMarcador : MonoBehaviour
 	{
 		// Localizamos el componente del UI
 		Text t = marcador.GetComponent<Text> ();
-		t.text = puntos.ToString ();
+
+		// Actualizamos el marcador
+		t.text = "Puntos: "+puntos.ToString () + "\n";
+		t.text += "Vidas: "+vidas.ToString () + "\n";
+
+		// Si el número de vidas llega a 0, reiniciamos el juego
+		if(vidas == 0)
+			Application.LoadLevel(Application.loadedLevel);
 	}
 }
