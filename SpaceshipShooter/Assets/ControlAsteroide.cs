@@ -17,6 +17,8 @@ public class ControlAsteroide : MonoBehaviour
 	// Detectar la colisión entre el asteroide y el disparo
 	void OnCollisionEnter2D (Collision2D coll)
 	{
+		GetComponent<AudioSource> ().Play ();
+
 		if (coll.gameObject.tag == "disparo") {
 			// Sumar la puntuación de este asteroide
 			marcador.GetComponent<ControlMarcador> ().puntos += puntos;
@@ -34,7 +36,8 @@ public class ControlAsteroide : MonoBehaviour
 		}
 
 		// El asteroide se destruye
-		Destroy (this.gameObject);
+		GetComponent<Renderer>().enabled = false;
+		GetComponent<Collider2D>().enabled = false;
 	}
 
 }
