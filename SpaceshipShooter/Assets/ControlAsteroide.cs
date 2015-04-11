@@ -21,8 +21,9 @@ public class ControlAsteroide : MonoBehaviour
 			// Sumar la puntuación de este asteroide
 			marcador.GetComponent<ControlMarcador> ().puntos += puntos;
 
-			// El disparo se destruye
-			Destroy (coll.gameObject);
+			// El disparo desaparece
+			coll.gameObject.GetComponent<Renderer>().enabled = false;
+			coll.gameObject.GetComponent<Collider2D>().enabled = false;
 		} else {
 			if (coll.gameObject.tag == "nave") {
 				// Hemos chocado con la nave, restamos una vida
