@@ -29,12 +29,16 @@ public class ControlNave : MonoBehaviour
 	{
 		// Izquierda
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			transform.Translate (Vector3.left * velocidadNave * Time.deltaTime);
+			if ( transform.position.x >= ((Camera.main.orthographicSize * Screen.width / Screen.height) - 3) * -1 ) {
+				transform.Translate (Vector3.left * velocidadNave * Time.deltaTime);
+			}
 		}
 
 		// Derecha
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			transform.Translate (Vector3.right * velocidadNave * Time.deltaTime);
+			if ( transform.position.x <= (Camera.main.orthographicSize * Screen.width / Screen.height) - 3 ) {
+				transform.Translate (Vector3.right * velocidadNave * Time.deltaTime);
+			}
 		}
 
 		// Disparo
