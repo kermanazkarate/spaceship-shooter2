@@ -27,17 +27,34 @@ public class ControlNave : MonoBehaviour
 
 	void Update ()
 	{
+		float topeIzq = ((Camera.main.orthographicSize * Screen.width / Screen.height) + 3) * -1 ;
+		float topeDcha = (Camera.main.orthographicSize * Screen.width / Screen.height) + 3;
+
 		// Izquierda
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			if ( transform.position.x >= ((Camera.main.orthographicSize * Screen.width / Screen.height) - 3) * -1 ) {
+
+
+			if ( transform.position.x <= topeIzq ) {
+
+				transform.position = new Vector3( topeDcha, 0, 0);
+			} else {
 				transform.Translate (Vector3.left * velocidadNave * Time.deltaTime);
+
 			}
+
 		}
 
 		// Derecha
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			if ( transform.position.x <= (Camera.main.orthographicSize * Screen.width / Screen.height) - 3 ) {
+
+			if ( transform.position.x >= topeDcha ) {
+
+				transform.position = new Vector3( topeIzq, 0, 0);
+
+			} else {
+
 				transform.Translate (Vector3.right * velocidadNave * Time.deltaTime);
+
 			}
 		}
 
