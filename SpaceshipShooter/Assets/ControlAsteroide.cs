@@ -24,20 +24,33 @@ public class ControlAsteroide : MonoBehaviour
 			marcador.GetComponent<ControlMarcador> ().puntos += puntos;
 
 			// El disparo desaparece
-			coll.gameObject.GetComponent<Renderer>().enabled = false;
-			coll.gameObject.GetComponent<Collider2D>().enabled = false;
-		} else {
-			if (coll.gameObject.tag == "nave") {
+			coll.gameObject.GetComponent<Renderer> ().enabled = false;
+			coll.gameObject.GetComponent<Collider2D> ().enabled = false;
+		} 
+		else if (coll.gameObject.tag == "mina") 
+		{
+				// Sumar la puntuación de este asteroide
+				marcador.GetComponent<ControlMarcador> ().puntos += puntos;
+				
+				// El disparo desaparece
+				coll.gameObject.GetComponent<Renderer> ().enabled = false;
+				coll.gameObject.GetComponent<Collider2D> ().enabled = false;
+		} 
+		else if (coll.gameObject.tag == "nave") 
+		{
 				// Hemos chocado con la nave, restamos una vida
 				if (marcador.GetComponent<ControlMarcador> ().vidas > 0) {
 					marcador.GetComponent<ControlMarcador> ().vidas -= 1;
 				}
-			}
+
 		}
 
 		// El asteroide se destruye
 		GetComponent<Renderer>().enabled = false;
 		GetComponent<Collider2D>().enabled = false;
+
+		//Genero la animacion de la explosion del asteroide
+		//GetComponent<Animator>().enabled = true
 	}
 
 }
