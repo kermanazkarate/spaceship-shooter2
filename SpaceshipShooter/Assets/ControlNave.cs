@@ -5,7 +5,7 @@ public class ControlNave : MonoBehaviour
 {
 	public float velocidadNave = 20f;
 	public float velocidadDisparo = 10f;
-	public float velocidadBomba = 40f;
+	public float velocidadBomba = 900f;
 
 	// Acceso al prefab Disparo
 	public Rigidbody2D disparo;
@@ -18,6 +18,9 @@ public class ControlNave : MonoBehaviour
 	{
 		// Clonar el objeto
 		Rigidbody2D b = (Rigidbody2D)Instantiate (bomba, transform.position, transform.rotation);
+
+		//Genero la rotación de la bomba
+		b.AddTorque (200f);
 
 		// Desactivar la gravedad para este objeto, si no, ¡se cae!
 		b.gravityScale = 0;

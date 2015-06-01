@@ -38,7 +38,7 @@ public class GeneradorAsteroides : MonoBehaviour
 		}
 
 		// Le damos rotación y lo escalamos un poco para que parezcan diferentes 
-		asteroide.AddTorque (Random.value * 100f);
+		asteroide.AddTorque (Random.value * 200f);
 		float escala = Random.Range (.5f, 1f);
 		asteroide.transform.localScale = new Vector3 (escala, escala, escala);
 	}
